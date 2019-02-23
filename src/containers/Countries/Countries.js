@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Country from '../../components/Country/Country'
+import CountryInfo from '../../components/CountryInfo/CountryInfo'
 
 class Countries extends Component {
     state = {
@@ -29,9 +30,13 @@ class Countries extends Component {
 
     render() {
         let countries = this.state.countries;
+
         return (
-            countries.map(country => (<Country name={country.name}
-                                               clicked={()=>{this.setCurrentCountry(country.name)}}/>))
+            <div>
+                {countries.map(country => (<Country name={country.name}
+                                               clicked={()=>{this.setCurrentCountry(country.name)}}/>))}
+                <CountryInfo />
+            </div>
         );
     }
 }
