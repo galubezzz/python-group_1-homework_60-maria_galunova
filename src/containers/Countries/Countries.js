@@ -10,7 +10,8 @@ class Countries extends Component {
     };
 
     componentDidMount() {
-        axios.get().then(response => {
+        const baseURL = "https://restcountries.eu/rest/v2/all?fields=name;alpha3Code";
+        axios.get(baseURL).then(response => {
             return response;
         }).then(response => {
             this.setState({countries: response.data});
@@ -34,8 +35,8 @@ class Countries extends Component {
         return (
             <div>
                 {countries.map(country => (<Country name={country.name}
-                                               clicked={()=>{this.setCurrentCountry(country.name)}}/>))}
-                <CountryInfo />
+                                               clicked={()=>{this.setCurrentCountry(country.alpha3Code)}}/>))}
+                <CountryInfo code={this.state.currentCountry} />
             </div>
         );
     }
