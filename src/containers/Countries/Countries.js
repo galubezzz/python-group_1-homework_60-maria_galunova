@@ -1,5 +1,6 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
+import Country from '../../components/Country/Country'
 
 class Countries extends Component {
     state = {
@@ -20,7 +21,7 @@ class Countries extends Component {
     render() {
         let countries = this.state.countries;
         return (
-            countries.map(country => (<div>{country.name}</div>))
+            countries.map(country => (<Country name={country.name}/>))
         );
     }
 }
