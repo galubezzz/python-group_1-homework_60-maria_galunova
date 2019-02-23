@@ -5,6 +5,7 @@ import Country from '../../components/Country/Country'
 class Countries extends Component {
     state = {
         countries: [],
+        currentCountry: null,
     };
 
     componentDidMount() {
@@ -17,11 +18,20 @@ class Countries extends Component {
         });
     }
 
+    setCurrentCountry = (country) => {
+        this.setState({
+            ...this.state,
+            currentCountry: country
+        });
+    };
+
+
 
     render() {
         let countries = this.state.countries;
         return (
-            countries.map(country => (<Country name={country.name}/>))
+            countries.map(country => (<Country name={country.name}
+                                               clicked={()=>{this.setCurrentCountry(country.name)}}/>))
         );
     }
 }
