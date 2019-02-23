@@ -9,14 +9,21 @@ class CountryInfo extends Component {
 
     componentDidUpdate() {
 
-        const baseURL = "https://restcountries.eu/rest/v2/alpha/";
-        axios.get(baseURL + this.props.code).then(response => {
-            return response;
-        }).then(response => {
-            this.setState({loadedCountry: response.data});
-        }).catch(error => {
-            console.log(error);
-        });
+        const loadedCountry = this.state.loadedCountry;
+        const newCountryCode = this.props.code;
+
+        if (newCountryCode) {
+            if (!loadedCountry || (newCountryCode !== loadedCountry.alpha3Code)) {
+                const baseURL = "https://restcountries.eu/rest/v2/alpha/";
+                axios.get(baseURL + this.props.code)
+                    .then(response => {
+                        this.setState({loadedCountry: response.data});
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        }
     }
 
     render() {
