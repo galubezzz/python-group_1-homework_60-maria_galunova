@@ -1,9 +1,9 @@
 .contries-main-container {
-  max-height: 100vh;
+  height: 90vh;
   overflow: auto;
   display: flex;
   border: .5px solid rgb(174, 174, 174);
-  margin-top: 1rem;
+  margin: 1rem 3rem 1rem 3rem;
 }
 
 .countries-container {
@@ -11,6 +11,7 @@
   overflow: auto;
   width: 30%;
   border: .5px solid rgb(174, 174, 174);
+  padding-top: 1rem;
 }
 
 .country-info-container {
@@ -20,4 +21,5 @@
   overflow: auto;
   width: 70%;
   border: .5px solid rgb(174, 174, 174);
+  padding-top: 1rem;
 }

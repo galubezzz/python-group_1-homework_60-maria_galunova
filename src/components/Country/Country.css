@@ -1,7 +1,11 @@
 .country-item:hover {
-  cursor: pointer;
+    cursor: pointer;
+    background-color: aqua;
 }
 
 .country-item {
-  font-weight: 400;
+    font-weight: 400;
+    line-height: 32px;
+    border-top: 1px solid #ccc;
+    background-color: white;
 }
