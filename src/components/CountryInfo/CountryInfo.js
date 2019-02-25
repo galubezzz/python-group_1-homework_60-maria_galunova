@@ -29,7 +29,13 @@ class CountryInfo extends Component {
     render() {
         return (
             this.state.loadedCountry ?
-                <div>!! {this.state.loadedCountry.name} {this.state.loadedCountry.population} !!</div> : null
+                <div className="country-info-main-container">
+                  <div><img alt="country flag" className="img" src={this.state.loadedCountry.flag}/></div>
+                  <p>{this.state.loadedCountry.name}</p>
+                  <p>Population: {this.state.loadedCountry.population}</p>
+                  <p>Capital: {this.state.loadedCountry.capital}</p>
+                  <p>Region: {this.state.loadedCountry.region}</p>
+                </div> : null
         )
     }
 }
